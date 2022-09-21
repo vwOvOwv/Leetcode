@@ -17,49 +17,26 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        // if(head==nullptr||head->next==nullptr)
-        //     return head;
-        // ListNode*p=nullptr;
-        // ListNode*c=head,*n=c->next;
-        // ListNode*q=head;
-        // int cnt=1;
-        // while(q->next!=nullptr){
-        //     q=q->next;
-        //     cnt++;
-        // }
-        // if(cnt%2){
-        //     while(c->next!=nullptr){
-        //         c->next=p;
-        //         ListNode*tmp=c;
-        //         c=n->next;
-        //         n->next=tmp;
-        //         p=n;
-        //         n=c->next;
-        //     }
-        //     c->next=p;
-        //     return c;
-        // }
-        // else{
-        //     while(c->next->next!=nullptr){
-        //         c->next=p;
-        //         ListNode*tmp=c;
-        //         c=n->next;
-        //         n->next=tmp;
-        //         p=n;
-        //         n=c->next;
-        //     }
-        //     c->next=p;
-        //     n->next=c;
-        //     return n;
-        // }
-        ListNode*p=nullptr,*q=head;
-        while(q!=nullptr){
-            ListNode*tmp=q->next;//指针的维护！！！
-            q->next=p;
-            p=q;q=tmp;
-        }
-        return p;
+    // ListNode* reverseList(ListNode* head) {//双指针
+    //     ListNode*p=nullptr,*q=head;
+    //     while(q!=nullptr){
+    //         ListNode*tmp=q->next;//指针的维护！！！
+    //         q->next=p;
+    //         p=q;q=tmp;
+    //     }
+    //     return p;
+    // }
+
+    //递归，与双指针类似
+    ListNode* reverse(ListNode*p,ListNode*q){
+        if(q==nullptr)//到达末尾、
+            return p;
+        ListNode*tmp=q->next;
+        q->next=p;
+        return reverse(q,tmp);
+    }
+    ListNode* reverseList(ListNode* head){
+        return reverse(nullptr,head);//初始位置也与双指针相同
     }
 };
 // @lc code=end
