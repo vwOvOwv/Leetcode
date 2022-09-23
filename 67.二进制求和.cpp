@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
 public:
-    string addBinary(string a, string b) {
+    string addBinary(string a, string b) {//高精度加法
         if(a.size()<b.size())
             swap(a,b);
         reverse(a.begin(),a.end());

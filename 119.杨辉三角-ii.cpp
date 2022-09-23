@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
 public:
-    vector<int> getRow(int rowIndex) {
+    vector<int> getRow(int rowIndex) {//递推
         vector<int>prev(2,1),cur;
         if(rowIndex==0){
             cur.push_back(1);

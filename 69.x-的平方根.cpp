@@ -5,14 +5,14 @@
  */
 
 // @lc code=start
-class Solution {
+class Solution {//二分查找
 public:
     int mySqrt(int x) {
         int L=1,R=x;
         int ans;
         while(L<=R){
             int mid=L+(R-L)/2;
-            if(mid<x/mid){
+            if(mid<x/mid){//mid*mid int溢出
                 ans=mid;
                 L=mid+1;
             }

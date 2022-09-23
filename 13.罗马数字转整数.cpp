@@ -49,7 +49,7 @@ public:
                 }
             }
         }
-        if(i==s.size()-1){//最后一位要特判
+        if(i==s.size()-1){//最后一位要特判，如果最后一位和前一位在一起加了那i=s.size()-1+1+1
              switch (s[i])
                 {
                     case 'I':ans+=1;break;

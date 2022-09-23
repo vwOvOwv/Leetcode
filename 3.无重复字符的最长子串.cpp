@@ -7,8 +7,24 @@
 // @lc code=start
 class Solution {
 public:
-    int lengthOfLongestSubstring(string s) {
-
+    int lengthOfLongestSubstring(string s) {//滑动窗口
+        unordered_set<char>rec;
+        int len=s.size();
+        int ans=0,r=0;
+        for(int l=0;l<len;l++){
+            if(l!=0)
+                rec.erase(s[l-1]);
+            while(r<len){
+                if(!rec.count(s[r])){
+                    rec.insert(s[r]);
+                    r++;
+                }
+                else
+                    break;
+            }
+            ans=max(ans,r-l);
+        }
+        return ans;
     }
 };
 // @lc code=end

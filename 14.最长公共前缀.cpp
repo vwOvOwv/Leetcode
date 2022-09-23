@@ -8,15 +8,15 @@
 class Solution
 {
 public:
-    string longestCommonPrefix(vector<string> &strs)
+    string longestCommonPrefix(vector<string> &strs)//横向扫描，纵向扫描也可且更好理解
     {
-        string now=strs[0];//now是当前最长公共前缀
+        string now=strs[0];//now是当前最长公共前缀，最长公共前缀是单调递减变化的（只会越来越短）
         for (auto str : strs)
         {
             int len = now.size();
             for (int i = 0; i < len; i++)
             {
-                if(i==str.size())//注意如果str已经结束了而now还未结束则说明最长公共前缀就是str
+                if(i==str.size())//注意如果str已经结束了而now还未结束则说明当前最长公共前缀就是str
                     now=str;
                 if (str[i] != now[i]){
                     now=str.substr(0,i);

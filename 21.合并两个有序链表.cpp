@@ -18,7 +18,7 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode*p=list1;
+        /*ListNode*p=list1;
         ListNode*q=list2;
         if(p==nullptr)
             return list2;
@@ -50,7 +50,26 @@ public:
                 p=p->next;
             }
             return list2;
+        }*/
+        ListNode*dummy=new ListNode;
+        ListNode*prev=dummy,*p=list1,*q=list2;//prev->next标记合并后数组末尾
+        while(p&&q){
+            if(p->val<=q->val){
+                prev->next=p;
+                p=p->next;
+                prev=prev->next;
+            }
+            else{
+                prev->next=q;
+                q=q->next;
+                prev=prev->next;
+            }
         }
+        if(p)
+            prev->next=p;
+        if(q)
+            prev->next=q;
+        return dummy->next;
     }
 };
 // @lc code=end
