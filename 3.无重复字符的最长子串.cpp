@@ -19,8 +19,10 @@ public:
                     rec.insert(s[r]);
                     r++;
                 }
-                else
+                else{
+                    //ans=max(ans,r-l);不能这样写！！！"au"一路跑到结尾了到不了这条语句！！！
                     break;
+                }
             }
             ans=max(ans,r-l);
         }

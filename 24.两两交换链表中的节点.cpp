@@ -18,7 +18,21 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-
+        if(!head||!head->next)
+            return head;
+        ListNode*dummy=new ListNode(0);
+        dummy->next=head;
+        ListNode*tmp,*p,*q;
+        tmp=dummy;
+        while(tmp&&tmp->next&&tmp->next->next){
+            p=tmp->next;
+            q=p->next;
+            p->next=q->next;
+            q->next=p;
+            tmp->next=q;
+            tmp=p;
+        }
+        return dummy->next;
     }
 };
 // @lc code=end

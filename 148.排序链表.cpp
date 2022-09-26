@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=23 lang=cpp
+ * @lc app=leetcode.cn id=148 lang=cpp
  *
- * [23] 合并K个升序链表
+ * [148] 排序链表
  */
 
 // @lc code=start
@@ -17,8 +17,13 @@
  */
 class Solution {
 public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        
+    ListNode* sortList(ListNode* head) {
+        ListNode*p=head,*phead=new ListNode(p->val),*cur=phead;
+        while(p->next){
+            if(p->next->val<)
+
+            p=p->next;
+        }
     }
 };
 // @lc code=end
