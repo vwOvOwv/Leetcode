@@ -10,7 +10,7 @@ class Solution
 public:
     string longestCommonPrefix(vector<string> &strs)//横向扫描，纵向扫描也可且更好理解
     {
-        string now=strs[0];//now是当前最长公共前缀，最长公共前缀是单调递减变化的（只会越来越短）
+        string now=strs[0];//now是当前最长公共前缀，最长公共前缀的长度是单调递减的（只会越来越短）
         for (auto str : strs)
         {
             int len = now.size();

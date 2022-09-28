@@ -12,7 +12,7 @@ public:
         int ans=0;
         for(int i=0;i<dominoes.size();i++){
             int a=dominoes[i][0],b=dominoes[i][1];
-            if(a>b){
+            if(a>b){//统一大小序
                 int tmp=a;
                 a=b;
                 b=tmp;

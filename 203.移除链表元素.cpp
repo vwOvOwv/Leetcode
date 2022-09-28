@@ -18,23 +18,15 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        ListNode* p=head;
-        if(p==nullptr)//特判空表
-            return head;
-        while(p->next!=nullptr){
-            if(p->next->val==val){//删除之后不要急着后移p,因为这样相当于跳过了一个元素
-                ListNode*q=p->next;
-                p->next=q->next;
-                q->next=nullptr;
+        ListNode*dummy=new ListNode(-1,head),*cur=dummy;
+        while(cur->next){
+            if(cur->next->val==val){
+                cur->next=cur->next->next;
             }
-            else{//p->next结点删不了才能移动p
-                p=p->next;
-            }
+            else
+                cur=cur->next;
         }
-        if(head->val==val){
-            head=head->next;
-        }
-        return head;
+        return dummy->next;
     }
 };
 // @lc code=end

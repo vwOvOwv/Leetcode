@@ -8,25 +8,20 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
+        int n=s.size();
+        bool dp[1010][1010]={0};//dp[i][j]表示从s[i]到s[j]是否是回文串
         int len=1;
         string ans;
-        ans.push_back(s[0]);
-        bool dp[1010][1010]={0};
-        int n=s.length();
         for(int i=0;i<n;i++)
             dp[i][i]=1;
-        for(int j=1;j<n;j++){//注意dp顺序
-            for(int i=0;i<j;i++){
-                if(j==i+1){
-                    dp[i][j]=(s[i]==s[j]);
-                }
-                else{
-                    dp[i][j]=(dp[i+1][j-1]&&s[i]==s[j]);
-                }
+        ans.push_back(s[0]);//注意
+        for(int j=0;j<n;j++){
+            for(int i=j-1;i>=0;i--){
+                dp[i][j]=(i==j-1?s[i]==s[j]:dp[i+1][j-1]&&s[i]==s[j]);//状态转移方程
                 if(dp[i][j]){
                     if(len<j-i+1){
-                        ans=s.substr(i,j-i+1);
                         len=j-i+1;
+                        ans=s.substr(i,len);
                     }
                 }
             }
