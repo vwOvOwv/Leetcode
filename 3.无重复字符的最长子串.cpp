@@ -8,7 +8,7 @@
 // @lc code=start
 class Solution {
 public:
-    int lengthOfLongestSubstring(string s) {//滑动窗口
+    int lengthOfLongestSubstring(string s) {//滑动窗口+双指针
         unordered_set<char>rec;
         int len=s.size();
         int ans=0,r=0;

@@ -7,8 +7,10 @@
 // @lc code=start
 class MinStack {
 public:
+    int mini_val;
+    
     MinStack() {
-
+        mini_val=INT_MAX;
     }
     
     void push(int val) {
