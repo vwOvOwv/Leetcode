@@ -8,25 +8,33 @@
 class MinStack {
 public:
     int mini_val;
-    
+    stack<int>data;
     MinStack() {
         mini_val=INT_MAX;
     }
     
     void push(int val) {
-
+        data.push(val);
+        if(min.empty()){
+            min.push(val);
+        }
+        else{
+            while(!min.empty()&&min.top()<=val)
+                min.pop();
+            
+        }
     }
     
     void pop() {
-
+        data.pop();
     }
     
     int top() {
-
+        return data.top();
     }
     
     int getMin() {
-
+        return mini_val;
     }
 };
 

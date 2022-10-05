@@ -7,32 +7,23 @@
 // @lc code=start
 class Solution {
 public:
-    vector<string>rec;
-    string ans;
-    void generate(int n){
-        if(n==0){
+    void generate(string ans,int left,int right,vector<string>&rec){
+        if(!left&&!right){
+            rec.push_back(ans);
             return;
         }
-        ans+="()";
-        generate(n-1);
-        rec.push_back(ans);
-
-        ans.clear();
-        ans+="(";
-        generate(n-1);
-        ans.push_back(')');
-        rec.push_back(ans);
-
-        ans.clear();
-        generate(n-1);
-        ans+="()";
-        rec.push_back(ans);
-
+        if(left>right)
+            return;
+        if(left>0)
+            generate(ans+'(',left-1,right,rec);
+        if(right>0)
+            generate(ans+')',left,right-1,rec);
     }
     vector<string> generateParenthesis(int n) {
-        generate(n);
+        vector<string>rec;
+        string ans;
+        generate(ans,n,n,rec);
         return rec;
     }
 };
 // @lc code=end
-
