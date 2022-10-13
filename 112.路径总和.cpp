@@ -18,8 +18,29 @@
  */
 class Solution {
 public:
+    vector<int>path;
+    int flag=0;
     bool hasPathSum(TreeNode* root, int targetSum) {
-
+        if(!root)
+            return false;
+        dfs(root,targetSum,0);
+        if(flag)
+            return true;
+        return false;
+    }
+    void dfs(TreeNode*root,int target,int sum){
+        if(flag)
+            return;
+        if(!root->left&&!root->right){
+             if(sum+root->val==target){
+                flag=1;
+             }
+             return;
+        }
+        if(root->left)
+            dfs(root->left,target,sum+root->val);
+        if(root->right)
+            dfs(root->right,target,sum+root->val);
     }
 };
 // @lc code=end

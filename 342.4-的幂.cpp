@@ -22,6 +22,8 @@ public:
         return false;
         */
        //构造mask
+       //4的幂的二进制数必然只有一个1且这个1在偶数位上
+       //1个16进制位是4个二进制位
        return n>0&&!(n&(n-1))&&!(n&0xaaaaaaaa);
     }
 };
