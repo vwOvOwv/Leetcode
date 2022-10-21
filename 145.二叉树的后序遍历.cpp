@@ -44,12 +44,14 @@ public:
             else{
                 pair<TreeNode*,char> tmp=st.top();
                 st.pop();
+                pointer=tmp.first;
                 if(tmp.second=='L'){
-                    st.push(make_pair(tmp.first,'R'));
-                    pointer=tmp.first->right;
+                    st.push(make_pair(pointer,'R'));
+                    pointer=pointer->right;
                 }
                 else{
-                    ans.push_back(tmp.first->val);
+                    ans.push_back(pointer->val);
+                    pointer=nullptr;//重要的
                 }
             }
         }
